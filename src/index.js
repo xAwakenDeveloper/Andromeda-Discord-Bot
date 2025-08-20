@@ -28,7 +28,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
     if (!interaction.isCommand()) return;
 
-    const command = commands.get(interaction.commandName);
+    const command = client.commands.get(interaction.commandName);
 
     if(!command) return; 
 
@@ -63,11 +63,10 @@ client.on('messageCreate', async message => {
             // TBD;
 
         }
-        else if(config.mode === 'auto') {
 
-            // TBD;
+    } else if (config.mode === 'auto') {
 
-        }
+        // TBD;
 
     }
 
