@@ -63,7 +63,7 @@ client.on('messageCreate', async message => {
 
         if(message.mentions.has(client.user)) {
 
-        const prompt = message.content.replace(`<@!${client.user.id}>`, '').trim();
+        prompt = message.content.replace(`<@!${client.user.id}>`, '').trim();
 
         } else {
 
@@ -73,7 +73,7 @@ client.on('messageCreate', async message => {
 
     } else if (config.mode === 'auto') {
 
-        const prompt = message.content;
+        prompt = message.content;
 
     } else {
 
