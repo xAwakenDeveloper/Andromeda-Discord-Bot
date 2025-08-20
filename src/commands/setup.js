@@ -11,7 +11,7 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('mode')
-                .setDescription('The mode for Andromeda (mention - Andromeda will reply only when you mention her, auto - Andromeda will reply to every message.)')
+                .setDescription('The mode Andromeda will use for replying.')
                 .setRequired(true)
                 .adChoices(
                     { name: 'mention', value: 'mention' },
