@@ -1,5 +1,7 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits , Collection, Events} = require('discord.js');
+const path = require('path');
+const { loadCommands } = require('./handlers/commandHandler');
 
 const client = new Client({
     intents: [
@@ -9,8 +11,35 @@ const client = new Client({
     ]
 });
 
+const commandsPath = path.join(__dirname, 'commands');
+client.commands = loadCommands(commandsPath);
+
 client.once('ready', () => {
+
     console.log(`Logged in as ${client.user.tag}!`);
+
+});
+
+client.on(Events.InteractionCreate, async interaction => {
+
+    if (!interaction.isCommand()) return;
+
+    const command = commands.get(interaction.commandName);
+
+    if(!command) return; 
+
+    try {
+
+        await command.execute(interaction);
+
+    }
+    catch (error) {
+
+        console.error("Error: " + error);
+        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+
+    }
+
 });
 
 client.login(process.env.DISCORD_TOKEN);
