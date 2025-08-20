@@ -57,23 +57,58 @@ client.on('messageCreate', async message => {
 
     if(message.channel.id !== config.channelId) return;
 
+    let prompt;
+
     if(config.mode === 'mention') {
 
         if(message.mentions.has(client.user)) {
 
-            const prompt = message.content.replace(`<@!${client.user.id}>`, '').trim();
-            const reply = await askAndromeda(prompt);
-            await message.reply(reply);
+        const prompt = message.content.replace(`<@!${client.user.id}>`, '').trim();
+
+        } else {
+
+            return;
 
         }
 
     } else if (config.mode === 'auto') {
 
         const prompt = message.content;
-        const reply = await askAndromeda(prompt);
-        await message.reply(reply);
+
+    } else {
+
+        return;
 
     }
+
+    let typing = true;
+
+    async function keepTyping() {
+
+        while (typing) {
+
+            await message.channel.sendTyping();
+            await new Promise(resolve => setTimeout(resolve, 4000));
+
+        }
+
+    }
+
+    keepTyping();
+
+    let reply;
+
+    try {
+
+        reply = await askAndromeda(prompt);
+
+    } finally {
+
+        typing = false;
+
+    }
+
+    await message.reply(reply);
 
 });
 
