@@ -13,7 +13,7 @@ module.exports = {
             option.setName('mode')
                 .setDescription('The mode Andromeda will use for replying.')
                 .setRequired(true)
-                .adChoices(
+                .addChoices(
                     { name: 'mention', value: 'mention' },
                     { name: 'auto', value: 'auto' }
                 )
