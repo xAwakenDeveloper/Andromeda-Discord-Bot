@@ -22,7 +22,7 @@ async function deployCommands() {
     }
 
     const rest = new REST().setToken(process.env.DISCORD_TOKEN);
-    const CLIENT_ID = process.env.CLIENT_ID;
+    const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 
     try {
 

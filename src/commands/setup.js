@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, ChannelType } = require('discord.js');
+const { setServerConfig } = require('../utils/configUtil');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -23,6 +24,10 @@ module.exports = {
 
         const channel = interaction.options.getChannel('channel');
         const mode = interaction.options.getString('mode');
+
+        setServerConfig(interaction.guild.id, channel.id, mode);
+
+        await interaction.reply(`Andromeda has been set up in this server! Channel: <#${channel.id}>, Mode: ${mode}.`);
 
     }
 
