@@ -1,0 +1,24 @@
+{
+  "name": "andromeda-discord-bot",
+  "version": "1.0.0",
+  "description": "\"# Andromeda Assistant Discord Bot\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lunatic-Dreams/Andromeda-Discord-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lunatic-Dreams/Andromeda-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/Lunatic-Dreams/Andromeda-Discord-Bot#readme",
+  "dependencies": {
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.1"
+  }
+}
