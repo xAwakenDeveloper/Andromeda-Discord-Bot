@@ -108,7 +108,21 @@ client.on('messageCreate', async message => {
 
     }
 
-    await message.reply(reply);
+    const MAX_LENGTH = 2000;
+
+    if(reply.length <= MAX_LENGTH) {
+
+        await message.reply(reply);
+
+    } else {
+
+        for (let i = 0; i < reply.length; i += MAX_LENGTH) {
+
+            await message.reply(reply.slice(i, i + MAX_LENGTH));
+
+        }
+
+    }
 
 });
 
