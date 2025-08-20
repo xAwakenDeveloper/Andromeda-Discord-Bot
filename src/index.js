@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Client, GatewayIntentBits , Collection, Events} = require('discord.js');
 const path = require('path');
 const { loadCommands } = require('./handlers/commandHandler');
+const { deployCommands } = require('./handlers/commandDeploy');
 
 const client = new Client({
     intents: [
@@ -16,6 +17,8 @@ client.commands = loadCommands(commandsPath);
 
 client.once('ready', () => {
 
+    deployCommands();
+    
     console.log(`Logged in as ${client.user.tag}!`);
 
 });
