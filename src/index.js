@@ -4,6 +4,7 @@ const path = require('path');
 const { loadCommands } = require('./handlers/commandHandler');
 const { deployCommands } = require('./handlers/commandDeploy');
 const { getServerConfig } = require('./utils/configUtil');
+const { askAndromeda } = require('./utils/andromeda');
 
 const client = new Client({
     intents: [
@@ -60,13 +61,17 @@ client.on('messageCreate', async message => {
 
         if(message.mentions.has(client.user)) {
 
-            // TBD;
+            const prompt = message.content.replace(`<@!${client.user.id}>`, '').trim();
+            const reply = await askAndromeda(prompt);
+            await message.reply(reply);
 
         }
 
     } else if (config.mode === 'auto') {
 
-        // TBD;
+        const prompt = message.content;
+        const reply = await askAndromeda(prompt);
+        await message.reply(reply);
 
     }
 

@@ -27,7 +27,7 @@ module.exports = {
 
         setServerConfig(interaction.guild.id, channel.id, mode);
 
-        await interaction.reply(`Andromeda has been set up in this server! Channel: <#${channel.id}>, Mode: ${mode}.`);
+        await interaction.reply(`✅ Andromeda has been set up in this server! Channel: <#${channel.id}>, Mode: **${mode}**.`);
 
     }
 
