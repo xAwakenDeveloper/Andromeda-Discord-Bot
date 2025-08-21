@@ -28,12 +28,16 @@ To add bot to your Discord server [click here.](https://discord.com/oauth2/autho
 git clone https://github.com/yourusername/andromeda-bot.git
 ```
 
+---
+
 2. Install required depencies:
 
 ```bash
 npm install discord.js 
 npm install dotenv
 ```
+
+---
 
 3. Create .env file in main project directory with following variables:
 
@@ -43,6 +47,8 @@ npm install dotenv
 - ANDROMEDA_API_KEY
 - SYSTEM_INSTRUCTIONS
 
+---
+
 4. Create new application on [Discord Developer Portal.](https://discord.com/developers)
 
  **IMPORTANT:** 
@@ -50,7 +56,11 @@ npm install dotenv
  - Enable Server Members Intent 
  - Enable Message Content Intent
 
+ ---
+
 5. Get your API key from [Google AI Studio.](https://aistudio.google.com/app/u/3/apikey?pli=1)
+
+---
 
 6. Fill out all variables in .env file:
 
@@ -59,6 +69,8 @@ npm install dotenv
 - ANDROMEDA_API_URL: URL of model you wanna use (For e.g. Gemini 2.0 Flash).
 - ANDROMEDA_API_KEY: API key from Google AI Studio.
 - SYSTEM_INSTRUCTIONS: Instructions to tell AI how it should behave.
+
+---
 
 7. Start it and enjoy!
 
