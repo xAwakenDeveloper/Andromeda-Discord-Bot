@@ -15,6 +15,8 @@ const client = new Client({
 });
 
 const commandsPath = path.join(__dirname, 'commands');
+const userConversations = new Map();
+
 client.commands = loadCommands(commandsPath);
 
 client.once('ready', () => {
@@ -81,6 +83,20 @@ client.on('messageCreate', async message => {
 
     }
 
+    const userId = message.author.id;
+
+    if(!userConversations.has(userId)) {
+
+        userConversations.set(userId, []);
+
+    }
+
+    const history = userConversations.get(userId);
+
+    history.push({ role: "user", parts: [{ text: prompt }] });
+
+    if (history.length > 10) history.shift();
+
     let typing = true;
 
     async function keepTyping() {
@@ -100,7 +116,9 @@ client.on('messageCreate', async message => {
 
     try {
 
-        reply = await askAndromeda(prompt);
+        reply = await askAndromeda(history);
+        history.push({ role: "model", parts: [{ text: reply }] });
+        if(history.length > 10) history.shift();
 
     } finally {
 
