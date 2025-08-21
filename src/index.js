@@ -4,7 +4,7 @@ const path = require('path');
 const { loadCommands } = require('./handlers/commandHandler');
 const { deployCommands } = require('./handlers/commandDeploy');
 const { getServerConfig } = require('./utils/configUtil');
-const { askAndromeda } = require('./utils/andromeda');
+const { askAndromeda } = require('./utils/apiUtil');
 
 const client = new Client({
     intents: [
