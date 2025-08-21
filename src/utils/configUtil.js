@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const configPath = path.join(__dirname, '..', 'data', 'serverConfig.json');
+const configPath = path.join(__dirname, '..', 'data', 'serverData.json');
 
 function loadConfig() {
 

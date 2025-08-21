@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits , Collection, Events} = require('discord.js');
+const { Client, GatewayIntentBits, Events} = require('discord.js');
 const path = require('path');
 const { loadCommands } = require('./handlers/commandHandler');
 const { deployCommands } = require('./handlers/commandDeploy');
@@ -25,6 +25,8 @@ client.once('ready', () => {
 
     console.log(`Logged in as ${client.user.tag}!`);
 
+    client.user.setActivity('Discord servers', { type: 'WATCHING' });
+
 });
 
 client.on(Events.InteractionCreate, async interaction => {
@@ -37,7 +39,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
     try {
 
-        await command.execute(interaction);
+        await command.execute(interaction, client);
 
     }
     catch (error) {
