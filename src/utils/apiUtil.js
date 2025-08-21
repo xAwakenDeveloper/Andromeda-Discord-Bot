@@ -54,7 +54,6 @@ async function askAndromeda(contents) {
         });
 
         const data = await response.json();
-        console.log('RAW API RESPONSE:', data);
 
         if (data.error) {
             console.error("Andromeda API error:", data.error);
