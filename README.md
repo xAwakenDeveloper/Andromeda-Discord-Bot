@@ -1,4 +1,4 @@
-# Andromeda Assistant Discord Bot 🌀
+# Andromeda Assistant Discord Bot
 
 **Andromeda Assistant Discord Bot** is a lightweight AI Assistant in form of a Discord bot powered by the **Andromeda (Gemini 2.0 Flash)** model.  
 It’s designed to be easy to use, fast, and open source, making it perfect for anyone who wants a simple AI companion on their server.
