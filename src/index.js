@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, Events} = require('discord.js');
+const { Client, GatewayIntentBits, Events, ActivityType } = require('discord.js');
 const path = require('path');
 const { loadCommands } = require('./handlers/commandHandler');
 const { deployCommands } = require('./handlers/commandDeploy');
@@ -25,7 +25,7 @@ client.once('ready', () => {
 
     console.log(`Logged in as ${client.user.tag}!`);
 
-    client.user.setActivity('Discord servers', { type: 'WATCHING' });
+    client.user.setActivity('👀 Listening to user commands.', { type: ActivityType.Custom});
 
 });
 
