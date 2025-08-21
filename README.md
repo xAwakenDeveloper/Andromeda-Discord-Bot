@@ -25,7 +25,7 @@ To add bot to your Discord server [click here.](https://discord.com/oauth2/autho
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/andromeda-bot.git
+git clone https://github.com/Lunatic-Dreams/Andromeda-Discord-Bot
 ```
 
 ---
