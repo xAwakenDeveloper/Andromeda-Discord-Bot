@@ -26,7 +26,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setColor('Red')
-                .setTitle('Permission Denied')
+                .setTitle('Permission denied!')
                 .setDescription('You need to have the Administrator permission to use this command.')
                 .setFooter({ 
                     text: 'Ask server admin to run this command.', 
@@ -52,7 +52,7 @@ module.exports = {
 
             embed = new EmbedBuilder()
             .setColor('Yellow')
-            .setTitle('Andromeda Setup Updated')
+            .setTitle('Andromeda setup updated!')
             .setDescription(`Andromeda has been updated in this server!\n\n\u200B- **New Channel:** <#${channel.id}>\n\u200B- **New Mode:**  \`${mode}\``)
             .setFooter({ 
                 text: 'You can change these settings later using the /setup command.', 
@@ -64,7 +64,7 @@ module.exports = {
 
             embed = new EmbedBuilder()
                 .setColor('Green')
-                .setTitle('Andromeda Setup Complete')
+                .setTitle('Andromeda setup complete!')
                 .setDescription(`Andromeda has been successfully set up in this server!\n\n\u200B- **Channel:** <#${channel.id}>\n\u200B- **Mode:**  \`${mode}\``)
                 .setFooter({ 
                     text: 'You can change these settings later using the /setup command.', 
