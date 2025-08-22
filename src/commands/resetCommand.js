@@ -47,7 +47,7 @@ module.exports = {
         } else {
 
             const embed = new EmbedBuilder()
-                .setColor('Yellow')
+                .setColor('Red')
                 .setTitle('No configuration found!')
                 .setDescription('There is no Andromeda configuration for this server to reset.')
                 .setFooter({

@@ -63,7 +63,7 @@ client.on('messageCreate', async message => {
 
     let prompt;
 
-    if(config.mode === 'mention') {
+    if(config.mode === 'Mention') {
 
         if(message.mentions.has(client.user)) {
 
@@ -75,7 +75,7 @@ client.on('messageCreate', async message => {
 
         }
 
-    } else if (config.mode === 'auto') {
+    } else if (config.mode === 'Auto') {
 
         prompt = message.content;
 

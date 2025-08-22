@@ -33,7 +33,7 @@ async function sendFeedbackMail({ username, type, title, description, date, feed
                     <td>${username}</td>
                 </tr>
                 <tr>
-                    <td style="font-weight:700;">Typ feedbacku</td>
+                    <td style="font-weight:700;">Typ zgłoszenia</td>
                     <td>${type}</td>
                 </tr>
                 <tr>
@@ -49,7 +49,7 @@ async function sendFeedbackMail({ username, type, title, description, date, feed
                     <td>${date}</td>
                 </tr>
                 <tr>
-                    <td style="font-weight:700;">Numer feedbacku</td>
+                    <td style="font-weight:700;">Numer zgłoszenia</td>
                     <td>${feedbackId}</td>
                 </tr>
             </table>
@@ -99,7 +99,7 @@ module.exports = {
                 .setRequired(true)
         ),
 
-    async execute(interaction) {
+    async execute(interaction, client) {
         const username = interaction.user.username;
         const type = interaction.options.getString('type');
         const title = interaction.options.getString('title');
@@ -117,7 +117,8 @@ module.exports = {
                 .addFields(
                     { name: 'Feedback ID', value: feedbackId },
                     { name: 'Type', value: type, inline: true },
-                    { name: 'Title', value: title, inline: true }
+                    { name: 'Title', value: title, inline: true },
+                    { name: 'Description', value: description, inline: true }
                 )
                 .setFooter({
                     text: 'If you have another suggestion or issue, please use this command again.',

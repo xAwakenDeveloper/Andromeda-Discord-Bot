@@ -15,8 +15,8 @@ module.exports = {
                 .setDescription('The mode Andromeda will use for replying.')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'mention', value: 'mention' },
-                    { name: 'auto', value: 'auto' }
+                    { name: 'mention', value: 'Mention' },
+                    { name: 'auto', value: 'Auto' }
                 )
             ),
 
@@ -53,7 +53,11 @@ module.exports = {
             embed = new EmbedBuilder()
             .setColor('Yellow')
             .setTitle('Andromeda setup updated!')
-            .setDescription(`Andromeda has been updated in this server!\n\n\u200B- **New Channel:** <#${channel.id}>\n\u200B- **New Mode:**  \`${mode}\``)
+            .setDescription(`Andromeda has been updated in this server!`)
+            .addFields(
+                { name: 'New channel', value: `<#${channel.id}>`, inline: true },
+                { name: 'New mode', value: `${mode}`, inline: true }
+            )
             .setFooter({ 
                 text: 'You can change these settings later using the /setup command.', 
                 iconURL: client.user.displayAvatarURL()
@@ -65,7 +69,11 @@ module.exports = {
             embed = new EmbedBuilder()
                 .setColor('Green')
                 .setTitle('Andromeda setup complete!')
-                .setDescription(`Andromeda has been successfully set up in this server!\n\n\u200B- **Channel:** <#${channel.id}>\n\u200B- **Mode:**  \`${mode}\``)
+                .setDescription(`Andromeda has been successfully set up in this server!`)
+                .addFields(
+                    { name: 'Channel', value: `<#${channel.id}>`, inline: true },
+                    { name: 'Mode', value: `${mode}`, inline: true }
+                )
                 .setFooter({ 
                     text: 'You can change these settings later using the /setup command.', 
                     iconURL: client.user.displayAvatarURL()
