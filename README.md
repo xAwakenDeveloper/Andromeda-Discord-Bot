@@ -30,3 +30,10 @@ In order to make the bot start responding to your messages, you need to run the 
 - **Mode parameter**: *The mode in which the bot will operate: ``mention`` – the bot will only reply to messages where it is mentioned, ``auto`` – the bot will reply to all messages in the channel.*
 
 ---
+
+## Configuration reset 
+
+You can reset Andromeda configuration on your Discord server using the ``/reset`` command. 
+We recommend doing it before kicking the bot from the server for e.g.
+
+---
