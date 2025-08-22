@@ -27,32 +27,30 @@ async function sendFeedbackMail({ username, type, title, description, date, feed
         <h2 style="margin-top:24px;font-family:'Poppins',Arial,sans-serif;">Otrzymano nowe zgłoszenie feedback.</h2>
         <h3 style="font-weight:400;font-family:'Poppins',Arial,sans-serif;">Treść zgłoszenia znajduje się poniżej.</h3>
         <div style="background:#f6f6f6;padding:24px;border-radius:8px;border:1px solid #e6e6e6;margin-top:24px;">
-            <table style="width:100%;font-size:1.1em;font-family:'Poppins',Arial,sans-serif;">
-                <tr>
-                    <td style="font-weight:700;">Nazwa użytkownika</td>
-                    <td>${username}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:700;">Typ zgłoszenia</td>
-                    <td>${type}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:700;">Tytuł</td>
-                    <td>${title}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:700;">Opis</td>
-                    <td>${description}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:700;">Data</td>
-                    <td>${date}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:700;">Numer zgłoszenia</td>
-                    <td>${feedbackId}</td>
-                </tr>
-            </table>
+            <div style="margin-bottom:16px;">
+                <div style="font-weight:700;margin-bottom:4px;">Nazwa użytkownika</div>
+                <div>${username}</div>
+            </div>
+            <div style="margin-bottom:16px;">
+                <div style="font-weight:700;margin-bottom:4px;">Typ zgłoszenia</div>
+                <div>${type}</div>
+            </div>
+            <div style="margin-bottom:16px;">
+                <div style="font-weight:700;margin-bottom:4px;">Tytuł</div>
+                <div>${title}</div>
+            </div>
+            <div style="margin-bottom:16px;">
+                <div style="font-weight:700;margin-bottom:4px;">Opis</div>
+                <div>${description}</div>
+            </div>
+            <div style="margin-bottom:16px;">
+                <div style="font-weight:700;margin-bottom:4px;">Data</div>
+                <div>${date}</div>
+            </div>
+            <div style="margin-bottom:0;">
+                <div style="font-weight:700;margin-bottom:4px;">Numer zgłoszenia</div>
+                <div>${feedbackId}</div>
+            </div>
         </div>
         <p style="margin-top:32px;color:#888;font-family:'Poppins',Arial,sans-serif;">
             Wiadomość została wygenerowana automatycznie przez Andromeda Discord Bot.<br>Możesz odpowiedzieć użytkownikowi poprzez Discorda.
