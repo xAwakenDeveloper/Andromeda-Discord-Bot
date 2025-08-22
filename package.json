@@ -20,7 +20,8 @@
   "dependencies": {
     "discord.js": "^14.21.0",
     "dotenv": "^17.2.1",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.5",
+    "uuid": "^11.1.0"
   }
 }
-  
