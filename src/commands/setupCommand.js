@@ -4,7 +4,7 @@ const { setServerConfig, getServerConfig } = require('../utils/configUtil');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('setup')
-        .setDescription('Sets up the bot in the server.')
+        .setDescription('Sets up the Andromeda configuration for this server.')
         .addChannelOption(option =>
             option.setName('channel')
                 .setDescription('The channel to send messages to Andromeda.')

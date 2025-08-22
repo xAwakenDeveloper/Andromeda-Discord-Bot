@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require('disc
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('clear')
-        .setDescription('Clears bot messages in the channel.')
+        .setDescription('Clears the Andromeda messages on selected channel.')
         .addIntegerOption(option =>
             option.setName('quantity')
                 .setDescription('Quantity of bot messages to clear (1-100).')
