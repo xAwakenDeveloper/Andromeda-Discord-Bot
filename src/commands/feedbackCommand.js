@@ -116,7 +116,7 @@ module.exports = {
                 .setDescription('Your feedback has been sent to Lunatic Dreams. Thank you!')
                 .addFields(
                     { name: 'Feedback ID', value: feedbackId },
-                    { name: 'Type', value: type, inline: true },
+                    { name: 'Type', value: type },
                     { name: 'Title', value: title, inline: true },
                     { name: 'Description', value: description, inline: true }
                 )
