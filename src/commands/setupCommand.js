@@ -1,89 +1,67 @@
-const { SlashCommandBuilder, ChannelType, EmbedBuilder, PermissionsBitField } = require('discord.js');
+const { SlashCommandBuilder, ChannelType, EmbedBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
 const { setServerConfig, getServerConfig } = require('../utils/configUtil');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('setup')
-        .setDescription('Sets up the Andromeda configuration for this server.')
+        .setDescription('Sets up the Gemini Bot configuration for this server.')
         .addChannelOption(option =>
             option.setName('channel')
-                .setDescription('The channel to send messages to Andromeda.')
+                .setDescription('The channel to send messages to Gemini Bot.')
                 .addChannelTypes(ChannelType.GuildText)
-                .setRequired(true))
+                .setRequired(true)
+        )
         .addStringOption(option =>
             option.setName('mode')
-                .setDescription('The mode Andromeda will use for replying.')
+                .setDescription('The mode Gemini Bot will use for replying.')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'mention', value: 'Mention' },
-                    { name: 'auto', value: 'Auto' }
+                    { name: 'mention', value: 'mention' },
+                    { name: 'auto', value: 'auto' }
                 )
-            ),
+        ),
 
-    async execute(interaction, client) {
+    async execute(interaction) {
 
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
+        if (!interaction.inGuild()) return;
 
+        const hasAdmin =
+            (interaction.memberPermissions && interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator)) ||
+            (interaction.member?.permissions?.has(PermissionsBitField.Flags.Administrator));
+
+        if (!hasAdmin) {
             const embed = new EmbedBuilder()
                 .setColor('Red')
                 .setTitle('Permission denied!')
-                .setDescription('You need to have the Administrator permission to use this command.')
-                .setFooter({ 
-                    text: 'Ask server admin to run this command.', 
-                    iconURL: client.user.displayAvatarURL()
-                })
+                .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed], ephemeral: true });
-            return;
-
+            return interaction.reply({
+                embeds: [embed],
+                flags: MessageFlags.Ephemeral
+            });
         }
 
         const channel = interaction.options.getChannel('channel');
         const mode = interaction.options.getString('mode');
         const guildId = interaction.guild.id;
-        const prevConfig = getServerConfig(guildId);
 
+        const prevConfig = getServerConfig(guildId);
         setServerConfig(guildId, channel.id, mode);
 
-        let embed;
-
-        if(prevConfig) {
-
-            embed = new EmbedBuilder()
-            .setColor('Yellow')
-            .setTitle('Andromeda setup updated!')
-            .setDescription(`Andromeda has been updated in this server!`)
+        const embed = new EmbedBuilder()
+            .setColor(prevConfig ? 'Yellow' : 'Green')
+            .setTitle(prevConfig ? 'Setup updated!' : 'Setup complete!')
             .addFields(
-                { name: 'New channel', value: `<#${channel.id}>`, inline: true },
-                { name: 'New mode', value: `${mode}`, inline: true }
+                { name: 'Channel', value: `<#${channel.id}>`, inline: true },
+                { name: 'Mode', value: mode, inline: true }
             )
-            .setFooter({ 
-                text: 'You can change these settings later using the /setup command.', 
-                iconURL: client.user.displayAvatarURL()
-            })
+            .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
             .setTimestamp();
 
-        } else {
-
-            embed = new EmbedBuilder()
-                .setColor('Green')
-                .setTitle('Andromeda setup complete!')
-                .setDescription(`Andromeda has been successfully set up in this server!`)
-                .addFields(
-                    { name: 'Channel', value: `<#${channel.id}>`, inline: true },
-                    { name: 'Mode', value: `${mode}`, inline: true }
-                )
-                .setFooter({ 
-                    text: 'You can change these settings later using the /setup command.', 
-                    iconURL: client.user.displayAvatarURL()
-                })
-                .setTimestamp();
-
-        }
-
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({
+            embeds: [embed],
+            flags: MessageFlags.Ephemeral
+        });
     }
-
-
-}
+};

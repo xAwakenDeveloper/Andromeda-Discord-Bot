@@ -1,9 +1,9 @@
-const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('clear')
-        .setDescription('Clears the Andromeda messages on selected channel.')
+        .setDescription('Clears the Gemini Bot messages on selected channel.')
         .addIntegerOption(option =>
             option.setName('quantity')
                 .setDescription('Quantity of bot messages to clear (1-100).')
@@ -12,86 +12,73 @@ module.exports = {
                 .setMaxValue(100)
         ),
 
-    async execute(interaction, client) {
+    async execute(interaction) {
 
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+        if (!interaction.inGuild()) return;
 
+        const hasManage =
+            (interaction.memberPermissions && interaction.memberPermissions.has(PermissionsBitField.Flags.ManageMessages)) ||
+            (interaction.member?.permissions?.has(PermissionsBitField.Flags.ManageMessages));
+
+        if (!hasManage) {
             const embed = new EmbedBuilder()
                 .setColor('Red')
                 .setTitle('Permission denied!')
                 .setDescription('You need to have the Manage Messages permission to use this command.')
-                .setFooter({
-                    text: 'Ask server admin to run this command.',
-                    iconURL: client.user.displayAvatarURL()
-                })
+                .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed], ephemeral: true });
-            return;
-
+            return interaction.reply({
+                embeds: [embed],
+                flags: MessageFlags.Ephemeral
+            });
         }
 
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
         const quantity = interaction.options.getInteger('quantity');
-        let deleted = 0;
 
         try {
-
             const messages = await interaction.channel.messages.fetch({ limit: 100 });
-            const botMessagesArray = messages
-                .filter(m => m.author.id === client.user.id)
-                .map(m => m);
-            const toDelete = botMessagesArray.slice(0, quantity);
 
-            if (toDelete.length === 0) {
+            const toDelete = messages
+                .filter(m =>
+                    m.author.id === interaction.client.user.id &&
+                    Date.now() - m.createdTimestamp < 14 * 24 * 60 * 60 * 1000
+                )
+                .first(quantity);
 
+            if (!toDelete.length) {
                 const embed = new EmbedBuilder()
                     .setColor('Yellow')
                     .setTitle('No messages to clear!')
-                    .setDescription('There are no messages from the bot to clear in this channel.')
-                    .setFooter({
-                        text: 'You can use this command again to clear more messages.',
-                        iconURL: client.user.displayAvatarURL()
-                    })
+                    .setDescription('There are no bot messages to delete.')
+                    .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
                     .setTimestamp();
 
-                await interaction.reply({ embeds: [embed], ephemeral: true });
-                return;
-
+                return interaction.editReply({ embeds: [embed] });
             }
 
-            for (const msg of toDelete) {
-
-                await msg.delete();
-                deleted++;
-
-            }
+            await interaction.channel.bulkDelete(toDelete, true);
 
             const embed = new EmbedBuilder()
                 .setColor('Green')
                 .setTitle('Messages cleared!')
-                .setDescription(`Cleared ${deleted} bot messages from this channel.`)
-                .setFooter({
-                    text: 'You can use this command again to clear more messages.',
-                    iconURL: client.user.displayAvatarURL()
-                })
+                .setDescription(`Cleared ${toDelete.length} bot messages.`)
+                .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed], ephemeral: true });
+            await interaction.editReply({ embeds: [embed] });
 
         } catch (error) {
-
             const embed = new EmbedBuilder()
                 .setColor('Red')
                 .setTitle('Error clearing messages!')
-                .setDescription(`Cannot clear messages, make sure messages are not older than 14 days.\n\n\u200B - **Error:**  ${error.message}`)
-                .setFooter({
-                    text: 'You can use this command again to clear more messages.',
-                    iconURL: client.user.displayAvatarURL()
-                })
+                .setDescription(error.message || 'Unknown error')
+                .setFooter({ text: 'Gemini Bot', iconURL: interaction.client.user.displayAvatarURL() })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed], ephemeral: true });
-            
+            await interaction.editReply({ embeds: [embed] });
         }
     }
 };

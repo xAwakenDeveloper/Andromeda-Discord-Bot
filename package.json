@@ -18,10 +18,9 @@
   },
   "homepage": "https://github.com/Lunatic-Dreams/Andromeda-Discord-Bot#readme",
   "dependencies": {
-    "discord.js": "^14.21.0",
-    "dotenv": "^17.2.1",
+    "discord.js": "^14.25.1",
+    "dotenv": "^17.2.3",
     "node-fetch": "^3.3.2",
-    "nodemailer": "^7.0.5",
     "uuid": "^11.1.0"
   }
 }
