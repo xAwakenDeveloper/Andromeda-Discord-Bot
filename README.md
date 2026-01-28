@@ -47,9 +47,13 @@
   <img src="/images/env.png" alt="Env example">
 </p>
 
+---
+
 <p align="center">Now fill your <code>.env</code> entries, grab your <strong>Discord Token</strong> and <strong>Discord Client ID</strong> from <a href="https://discord.com/developers/">Discord Developer Portal</a> and your <strong>Gemini API URL</strong> and <strong>Gemini API Key</strong> from <a href="https://aistudio.google.com/">Google AI Studio</a>.</p>
 
 <h4 align="center">You're good to go, now use <code>node src/index.js</code> command to start the bot and add it to your Discord server.</h4>
+
+---
 
 <h3 align="center">CHANGE STARTING COMMAND (OPTIONAL)</h3>
 
