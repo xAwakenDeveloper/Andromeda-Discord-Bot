@@ -1,39 +1,81 @@
-# Andromeda Assistant Discord Bot
+<p align="center">
+  <img src="/images/banner.png" alt="Banner">
+</p>
 
-**Andromeda Assistant Discord Bot** is a lightweight AI Assistant in form of a Discord bot powered by the **Andromeda (Gemini 2.0 Flash)** model.  
+<h4 align="center">Gemini Discord Chatbot is a lightweight chatbot with Gemini AI integration powered by Gemini model of your choice.</h4>
 
-It’s designed to be easy to use, fast, and open source, making it perfect for anyone who wants a simple AI companion on their server.
-
----
-
-## Features
-
-- ⚡ **Fast and responsive** – Generates replies quickly for smooth conversations.  
-- 🛠️ **Easy to configure** – Minimal setup required, no API key needed.  
-- 🤖 **Discord integration** – Ready to add to your server and interact with users.  
-- 💬 **Simple AI responses** – Can answer questions, chat, and assist with basic tasks.  
-- ❌ **No censorship** - Andromeda is uncensored, that means NSFW is not a problem.
+<h4 align="center">It’s designed to be easy to setup and easy to use, making it perfect for anyone who wants a simple AI chatbot on their server.</h4>
 
 ---
 
-## Add bot to your Discord server
+<h1 align="center">Features</h1>
 
-To add bot to your Discord server [click here.](https://discord.com/oauth2/authorize?client_id=1407763160534089808&permissions=8&integration_type=0&scope=bot)
-
----
-
-## Important note 
-
-In order to make the bot start responding to your messages, you need to run the setup on your Discord server using the ``/setup`` command.
-
-- **Channel parameter**: *The channel that the bot will actively monitor – it will only respond in this channel.*
-- **Mode parameter**: *The mode in which the bot will operate: ``mention`` – the bot will only reply to messages where it is mentioned, ``auto`` – the bot will reply to all messages in the channel.*
+<p align="center">
+  <strong>⚡ Gemini API Integration</strong> - You can use any Gemini model. <br>
+  <strong>💉 System Instructions Injection</strong> - System instructions are injected into request body. <br>
+  <strong>⚙️ Simple Config</strong> - Settings for each server are being saved into config. <br>
+  <strong>🧩 Command Handler</strong> - Every command is handled by a handler. <br>  
+  <strong>💭 Two Conversation Modes</strong> - You can select bot answering behavior. <br>
+</p>
 
 ---
 
-## Configuration reset 
+<h1 align="center">Installation</h1>
 
-You can reset Andromeda configuration on your Discord server using the ``/reset`` command. 
-We recommend doing it before kicking the bot from the server for e.g.
+<h4 align="center">In order to make this work you need Node.JS, you can download it <a href="https://nodejs.org/en">here.</a></h4>
+
+<p align="center">First you have to clone this repository using: <br> <br>
+  <code>git clone https://github.com/xAwakenDeveloper/Gemini-Discord-Bot.git</code>
+  <br> <br>
+  Then you have to install required depencies: <br> <br>
+  First install <strong>Discord.js:</strong> <br> <br>
+  <code>npm install discord.js@latest</code> <br> <br>
+  Then install <strong>UUID:</strong> <br> <br>
+  <code>npm install uuid@latest</code> <br> <br>
+  And finally <strong>dotenv:</strong> <br> <br>
+  <code>npm install dotenv@latest</code> <br>
+</p>
+
+<p align="center">Now you have to create <code>.env</code> file in root directory which contains five entries:</p>
+<p align="center">
+<code>DISCORD_TOKEN</code> <code>DISCORD_CLIENT_ID</code> <code>GEMINI_API_URL</code> <code>GEMINI_API_KEY</code> <code>SYSTEM_INSTRUCTIONS</code> <br>
+</p>
+
+<h4 align="center">Here's an example how it should look:</h4>
+
+<p align="center">
+  <img src="/images/env.png" alt="Env example">
+</p>
+
+<p align="center">Now fill your <code>.env</code> entries, grab your <strong>Discord Token</strong> and <strong>Discord Client ID</strong> from <a href="https://discord.com/developers/">Discord Developer Portal</a> and your <strong>Gemini API URL</strong> and <strong>Gemini API Key</strong> from <a href="https://aistudio.google.com/">Google AI Studio</a>.</p>
+
+<h4 align="center">You're good to go, now use <code>node src/index.js</code> command to start the bot and add it to your Discord server.</h4>
+
+<h3 align="center">CHANGE STARTING COMMAND (OPTIONAL)</h3>
+
+<h4 align="center">You can change starting command to <code>npm run dev</code> by editing <code>package.json</code> file. You have to add one line of code: </h4>
+
+<p align="center">
+  <img src="images/package.png" alt="Instruction">
+</p>
 
 ---
+
+<h1 align="center">How to use</h1>
+
+<h4 align="center">There are three available commands at the moment: <code>/setup</code>, <code>/reset</code> and <code>/clear</code>.</h4>
+
+<h3 align="center">Setup Command:</h3>
+
+<p align="center">All it does is setting up the bot on the server. You have to use it when you add the bot on your server. It stores your server data and your settings.</p>
+
+<h3 align="center">Reset Command:</h3>
+
+<p align="center">It clears your server data from config, pretty basic.</p>
+
+<h3 align="center">Clear Command:</h3>
+
+<p align="center">Clears bot messages, if you had a long conversation with bot you can clear all of it's messages using one command.</p>
+
+---
+
