@@ -6,6 +6,18 @@
 
 <h4 align="center">It’s designed to be easy to setup and easy to use, making it perfect for anyone who wants a simple AI chatbot on their server.</h4>
 
+<div align="center">
+
+  <img src="https://img.shields.io/github/commit-activity/y/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=28C76F" alt="Commits Badge" height="20">
+
+  <img src="https://img.shields.io/github/issues/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=C3FF00" alt="Issues Badge" height="20">
+
+  <img src="https://img.shields.io/github/issues-pr/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=FFD700" alt="Pull Requests Badge" height="20">
+
+  <img src="https://img.shields.io/github/license/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=FFA500" alt="License Badge" height="20">
+
+</div>
+
 ---
 
 <h1 align="center">Features</h1>
