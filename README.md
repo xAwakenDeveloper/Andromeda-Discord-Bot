@@ -65,7 +65,7 @@ node src/index.js
 1. **Add the bot to your Discord server:**
 2. **Initialize the bot:** on your server:
 ```
-/init
+/setup
 ```
 
 This creates a config file with settings for your server.
@@ -76,7 +76,7 @@ This creates a config file with settings for your server.
 
 | Command | Description |
 |---------|-------------|
-| `/init` | Initializes the bot on your server (run this first) |
+| `/setup` | Initializes the bot on your server (run this first) |
 | `/reset` | Clear saved data and reset the bot to default settings |
 | `/clear` | Remove all bot messages from the current channel |
 
