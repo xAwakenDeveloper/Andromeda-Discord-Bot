@@ -23,7 +23,7 @@ Designed to be easy to setup and use - perfect for anyone who wants a simple AI 
 
 - **Gemini API Integration** - Use any Gemini model of your choice
 - **Custom System Instructions** - Inject custom instructions to personalize bot behavior
-- **Multiple Conversation Modes** - Choose hot the bot responds to messages
+- **Multiple Conversation Modes** - Choose how the bot responds to messages
 
 ## Installation
 
@@ -62,15 +62,15 @@ node src/index.js
 
 ## Quick Start
 
-1. **Add the bot to your Discord server**
-2. **Initialize the bot** on your server:
+1. **Add the bot to your Discord server:**
+2. **Initialize the bot:** on your server:
 ```
 /init
 ```
 
 This creates a config file with settings for your server.
 
-3. **Start chatting** Simply send messages in any channel where the bot has access.
+3. **Start chatting:** Simply send messages in any channel where the bot has access.
 
 ## Available Commands
 
