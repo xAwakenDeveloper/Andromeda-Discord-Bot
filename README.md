@@ -1,13 +1,15 @@
 <p align="center">
-  <img src="/images/banner.png" alt="Banner">
+  <img src="/images/banner.png" alt="Gemini Discord Bot Banner">
 </p>
 
-<h4 align="center">Gemini Discord Chatbot is a lightweight chatbot with Gemini AI integration powered by Gemini model of your choice.</h4>
+<h1 align="center">Gemini Discord Chatbot</h1>
 
-<h4 align="center">It’s designed to be easy to setup and easy to use, making it perfect for anyone who wants a simple AI chatbot on their server.</h4>
+<p align="center"> 
+A lightweight Discord chatbot powered by Google's Gemini AI. <br>
+Designed to be easy to setup and use - perfect for anyone who wants a simple AI chatbot on their server.
+</p>
 
-<div align="center">
-
+<p align="center">
   <img src="https://img.shields.io/github/commit-activity/y/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=28C76F" alt="Commits Badge" height="20">
 
   <img src="https://img.shields.io/github/issues/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=C3FF00" alt="Issues Badge" height="20">
@@ -15,83 +17,73 @@
   <img src="https://img.shields.io/github/issues-pr/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=FFD700" alt="Pull Requests Badge" height="20">
 
   <img src="https://img.shields.io/github/license/xAwakenDeveloper/Gemini-Discord-Bot?style=for-the-badge&color=FFA500" alt="License Badge" height="20">
-
-</div>
-
----
-
-<h1 align="center">Features</h1>
-
-<p align="center">
-  <strong>⚡ Gemini API Integration</strong> - You can use any Gemini model. <br>
-  <strong>💉 System Instructions Injection</strong> - System instructions are injected into request body. <br>
-  <strong>⚙️ Simple Config</strong> - Settings for each server are being saved into config. <br>
-  <strong>🧩 Command Handler</strong> - Every command is handled by a handler. <br>  
-  <strong>💭 Two Conversation Modes</strong> - You can select bot answering behavior. <br>
 </p>
 
----
+## Features
 
-<h1 align="center">Installation</h1>
+- **Gemini API Integration** - Use any Gemini model of your choice
+- **Custom System Instructions** - Inject custom instructions to personalize bot behavior
+- **Multiple Conversation Modes** - Choose hot the bot responds to messages
 
-<h4 align="center">In order to make this work you need Node.JS, you can download it <a href="https://nodejs.org/en">here.</a></h4>
+## Installation
 
-<p align="center">First you have to clone this repository using: <br> <br>
-  <code>git clone https://github.com/xAwakenDeveloper/Gemini-Discord-Bot.git</code>
-  <br> <br>
-  Then you have to install required depencies: <br> <br>
-  First install <strong>Discord.js:</strong> <br> <br>
-  <code>npm install discord.js@latest</code> <br> <br>
-  Then install <strong>UUID:</strong> <br> <br>
-  <code>npm install uuid@latest</code> <br> <br>
-  And finally <strong>dotenv:</strong> <br> <br>
-  <code>npm install dotenv@latest</code> <br>
-</p>
+### Prerequisites
 
-<p align="center">Now you have to create <code>.env</code> file in root directory which contains five entries:</p>
-<p align="center">
-<code>DISCORD_TOKEN</code> <code>DISCORD_CLIENT_ID</code> <code>GEMINI_API_URL</code> <code>GEMINI_API_KEY</code> <code>SYSTEM_INSTRUCTIONS</code> <br>
-</p>
+- [Node.JS](https://nodejs.org) (version 18 or higher)
+- Discord Bot Token ([Discord Developer Portal](https://discord.com/developers/))
+- Gemini API Key ([Google AI Studio](https://aistudio.google.com/))
 
-<h4 align="center">Here's an example how it should look:</h4>
+### Setup
 
-<p align="center">
-  <img src="/images/env.png" alt="Env example">
-</p>
+1. Clone the repository:
+```bash
+git clone https://github.com/xAwakenDeveloper/Gemini-Discord-Bot.git
+cd Gemini-Discord-Bot
+```
 
----
+2. Install dependencies:
+```bash
+npm install
+```
 
-<p align="center">Now fill your <code>.env</code> entries, grab your <strong>Discord Token</strong> and <strong>Discord Client ID</strong> from <a href="https://discord.com/developers/">Discord Developer Portal</a> and your <strong>Gemini API URL</strong> and <strong>Gemini API Key</strong> from <a href="https://aistudio.google.com/">Google AI Studio</a>.</p>
+3. Create `.env` file in the root directory:
+```env
+DISCORD_TOKEN=your_discord_bot_token_here
+DISCORD_CLIENT_ID=your_discord_bot_client_id_here
+GEMINI_API_URL=your_gemini_api_url_here
+GEMINI_API_KEY=your_gemini_api_key_here
+SYSTEM_INSTRUCTIONS="Your custom system instructions here"
+```
 
-<h4 align="center">You're good to go, now use <code>node src/index.js</code> command to start the bot and add it to your Discord server.</h4>
+4. Start the bot:
+```bash
+node src/index.js
+```
 
----
+## Quick Start
 
-<h3 align="center">CHANGE STARTING COMMAND (OPTIONAL)</h3>
+1. **Add the bot to your Discord server**
+2. **Initialize the bot** on your server:
+```
+/init
+```
 
-<h4 align="center">You can change starting command to <code>npm run dev</code> by editing <code>package.json</code> file. You have to add one line of code: </h4>
+This creates a config file with settings for your server.
 
-<p align="center">
-  <img src="images/package.png" alt="Instruction">
-</p>
+3. **Start chatting** Simply send messages in any channel where the bot has access.
 
----
+## Available Commands
 
-<h1 align="center">How to use</h1>
+| Command | Description |
+|---------|-------------|
+| `/init` | Initializes the bot on your server (run this first) |
+| `/reset` | Clear saved data and reset the bot to default settings |
+| `/clear` | Remove all bot messages from the current channel |
 
-<h4 align="center">There are three available commands at the moment: <code>/setup</code>, <code>/reset</code> and <code>/clear</code>.</h4>
+## Contributing
 
-<h3 align="center">Setup Command:</h3>
+Contributions are welcome, but please note that active development is not my main focus. Feel free to open pull requests or issues if you find something to improve or fix.
 
-<p align="center">All it does is setting up the bot on the server. You have to use it when you add the bot on your server. It stores your server data and your settings.</p>
+## License
 
-<h3 align="center">Reset Command:</h3>
-
-<p align="center">It clears your server data from config, pretty basic.</p>
-
-<h3 align="center">Clear Command:</h3>
-
-<p align="center">Clears bot messages, if you had a long conversation with bot you can clear all of it's messages using one command.</p>
-
----
-
+The project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
